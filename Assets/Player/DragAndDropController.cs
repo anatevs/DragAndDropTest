@@ -20,6 +20,8 @@ namespace Gameplay
 
         private readonly float _rayLength = 13f;
 
+        private readonly float _fakeHight = 0.1f;
+
         private bool _isDragging;
 
         private Vector2 _shiftHoldPoint;
@@ -65,6 +67,7 @@ namespace Gameplay
         private void DropObject()
         {
             _currentDragging.ExploreDown(_standableLayerMask, _rayLength, _floor, out _targetDropPoint);
+            _targetDropPoint = new Vector2(_targetDropPoint.x, _targetDropPoint.y - _fakeHight);
             _currentDragging.StartFalling(_targetDropPoint);
 
             _currentDragging = null;
