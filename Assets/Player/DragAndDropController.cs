@@ -16,7 +16,7 @@ namespace Gameplay
         [SerializeField]
         private GameObject _floor;
 
-        private GrabbingObject _currentDragging;
+        private DraggingComponent _currentDragging;
 
         private readonly float _rayLength = 13f;
 
@@ -59,7 +59,7 @@ namespace Gameplay
                     collider.transform.position.y)
                     - pointer;
 
-                _currentDragging = collider.gameObject.GetComponent<GrabbingObject>();
+                _currentDragging = collider.gameObject.GetComponent<DraggingComponent>();
                 _currentDragging.MakeFalling(false);
             }
         }

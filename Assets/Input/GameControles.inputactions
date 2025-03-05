@@ -50,13 +50,85 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "268c3951-fbde-4c15-a1b1-5134d2b8da5e",
-                    "path": "<Touchscreen>/primaryTouch/position",
+                    "name": "TouchScreenHolding",
+                    "id": "5bacb751-74d6-472e-8a21-af1db74e1852",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drag",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "0f723d2a-4133-4edc-9426-519a40fd5aea",
+                    "path": "<Touchscreen>/Press",
                     "interactions": "",
                     "processors": "",
                     "groups": "Touchscreen",
                     "action": "Drag",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "c57adf07-eb24-4c8f-b40a-cfd88540773d",
+                    "path": "<Touchscreen>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Touchscreen",
+                    "action": "Drag",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        },
+        {
+            "name": "Test",
+            "id": "583936ef-4248-4533-9e4b-da82f9cbb3b4",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "3db8f7fb-0a76-4d55-83c3-fe2fffa474f8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "8bbac19a-59ad-4d92-931f-8386b4dc32b9",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "889c009b-2590-44e5-822a-a4c40115c211",
+                    "path": "<Touchscreen>/primaryTouch/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Touchscreen",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "be1475f4-e207-4a35-97cf-01610cbac5fa",
+                    "path": "<Touchscreen>/primaryTouch/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Touchscreen",
+                    "action": "New action",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

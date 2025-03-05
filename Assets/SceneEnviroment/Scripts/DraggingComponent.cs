@@ -3,7 +3,7 @@
 namespace Gameplay
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class GrabbingObject : MonoBehaviour
+    public class DraggingComponent : MonoBehaviour
     {
         [SerializeField]
         private Transform _bottomPoint;

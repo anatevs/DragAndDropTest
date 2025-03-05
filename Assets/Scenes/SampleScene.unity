@@ -1436,7 +1436,7 @@ GameObject:
   m_Component:
   - component: {fileID: 272585291}
   - component: {fileID: 272585292}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Shelf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6297,6 +6297,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 959642886}
+  - {fileID: 1807174353}
   m_Father: {fileID: 2138344508}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8382,7 +8383,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1788184723}
   - component: {fileID: 1788184724}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Shelf (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8559,6 +8560,73 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8408289, y: 1.0127726}
   m_EdgeRadius: 0
+--- !u!1 &1807174352
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1807174353}
+  - component: {fileID: 1807174354}
+  m_Layer: 7
+  m_Name: RoundTop (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1807174353
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807174352}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.42, y: -1.5, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1233772723}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &1807174354
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807174352}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.042610902, y: 0.12841631}
+  m_Size: {x: 1.5518949, y: 0.32511094}
+  m_Direction: 1
 --- !u!1 &1833523720
 GameObject:
   m_ObjectHideFlags: 0
@@ -9394,7 +9462,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2085306198}
   - component: {fileID: 2085306199}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Shelf (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
