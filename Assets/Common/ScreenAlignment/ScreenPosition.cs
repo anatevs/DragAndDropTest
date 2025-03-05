@@ -22,29 +22,34 @@ namespace GameCore
 
         private float _rightCameraBorder;
 
-
+        private float[] _leftRightCheckPoint;
 
         private void Start()
         {
             _camera = Camera.main;
 
             (_leftCameraBorder, _rightCameraBorder) = GetCameraBorders();
+
+            _leftRightCheckPoint = new float[2]
+            {
+                _leftCameraBorder + _borderMoveOffset,
+                _rightCameraBorder - _borderMoveOffset
+            };
         }
 
-
-        [SerializeField]
-        bool _isLeft, _isRight;
         private void Update()
         {
-            if (_isLeft)
+            if (_dragController.CurrentDragging != null)
             {
-                MoveLeft();
-                _isLeft = false;
-            }
-            if (_isRight)
-            {
-                MoveRight();
-                _isRight = false;
+                if (_dragController.CurrentDragging.IsUnderLeft(_leftRightCheckPoint[0]))
+                {
+                    MoveLeft();
+                }
+
+                if (_dragController.CurrentDragging.IsUnderRight(_leftRightCheckPoint[1]))
+                {
+                    MoveRight();
+                }
             }
         }
 

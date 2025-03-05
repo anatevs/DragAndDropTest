@@ -8,6 +8,9 @@ namespace GameCore
         [SerializeField]
         private Transform _bottomPoint;
 
+        [SerializeField]
+        private Transform[] _leftRightBorders = new Transform[2];
+
         private readonly Vector2 _downDirection = Vector2.down;
         private readonly Vector2 _upDirection = Vector2.up;
         private readonly Vector2 _zeroVector = Vector2.zero;
@@ -91,6 +94,16 @@ namespace GameCore
             _isFalling = isFalling;
             _rigidbody.isKinematic = !isFalling;
             _rigidbody.velocity = _zeroVector;
+        }
+
+        public bool IsUnderRight(float posX)
+        {
+            return (_leftRightBorders[1].position.x >= posX);
+        }
+
+        public bool IsUnderLeft(float posX)
+        {
+            return (_leftRightBorders[0].position.x <= posX);
         }
     }
 }

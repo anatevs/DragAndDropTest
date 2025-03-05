@@ -4,6 +4,8 @@ namespace GameCore
 {
     public class DragAndDropController : MonoBehaviour
     {
+        public DraggingComponent CurrentDragging => _currentDragging;
+
         [SerializeField]
         private InputHandler _inputHandler;
 
@@ -34,19 +36,21 @@ namespace GameCore
 
         private Vector2 _targetDropPoint;
 
+        private float[] _leftRightCameraBorders;
+
         private void OnEnable()
         {
-            _inputHandler.OnDragging += GrabObject;
+            _inputHandler.OnDragging += DragObject;
             _inputHandler.OnDropped += DropObject;
         }
 
         private void OnDisable()
         {
-            _inputHandler.OnDragging -= GrabObject;
+            _inputHandler.OnDragging -= DragObject;
             _inputHandler.OnDropped -= DropObject;
         }
 
-        private void GrabObject(Vector2 pointer)
+        private void DragObject(Vector2 pointer)
         {
             if (_isDragging)
             {
@@ -60,12 +64,13 @@ namespace GameCore
             if (collider != null)
             {
                 _isDragging = true;
+                _currentDragging = collider.gameObject.GetComponent<DraggingComponent>();
+
                 _shiftHoldPoint = new Vector2(
-                    collider.transform.position.x,
-                    collider.transform.position.y)
+                    _currentDragging.transform.position.x,
+                    _currentDragging.transform.position.y)
                     - pointer;
 
-                _currentDragging = collider.gameObject.GetComponent<DraggingComponent>();
                 _currentDragging.MakeFalling(false);
 
                 _currentDragging.transform.SetParent(_playerTransform);
