@@ -50,13 +50,17 @@ namespace Gameplay
 
                     if (pointColliders.Length > 1)
                     {
-                        if (collider.transform.gameObject == floor)
+                        if (collider.point.y != _bottomPoint.position.y)
+                        {
+                            continue;
+                        }
+                        else if (collider.point.y == _bottomPoint.position.y
+                            && pointColliders.Length != 2
+                            && collider.transform.gameObject == floor)
                         {
                             continue;
                         }
                     }
-
-                    //Debug.Log($"nearest stand {collider.transform.name} with {collider.point}");
 
                     standPoint = collider.point;
                     return true;
@@ -70,11 +74,9 @@ namespace Gameplay
             if (reverseColliders.Length > 2)
             {
                 standPoint = reverseColliders[1].point;
-                //Debug.Log($"standing is floor at point {standPoint}");
                 return true;
             }
 
-            //Debug.Log("standing did not find");
             return false;
         }
 

@@ -8,7 +8,7 @@ namespace Gameplay
         private InputHandler _inputHandler;
 
         [SerializeField]
-        private LayerMask _grabLayerMask;
+        private LayerMask _dragLayerMask;
 
         [SerializeField]
         private LayerMask _standableLayerMask;
@@ -49,7 +49,7 @@ namespace Gameplay
                 return;
             }
 
-            var collider = Physics2D.OverlapPoint(pointer, _grabLayerMask);
+            var collider = Physics2D.OverlapPoint(pointer, _dragLayerMask);
 
             if (collider != null)
             {
@@ -66,9 +66,12 @@ namespace Gameplay
 
         private void DropObject()
         {
-            _currentDragging.ExploreDown(_standableLayerMask, _rayLength, _floor, out _targetDropPoint);
-            _targetDropPoint = new Vector2(_targetDropPoint.x, _targetDropPoint.y - _fakeHight);
-            _currentDragging.StartFalling(_targetDropPoint);
+            if (_isDragging)
+            {
+                _currentDragging.ExploreDown(_standableLayerMask, _rayLength, _floor, out _targetDropPoint);
+                _targetDropPoint = new Vector2(_targetDropPoint.x, _targetDropPoint.y - _fakeHight);
+                _currentDragging.StartFalling(_targetDropPoint);
+            }
 
             _currentDragging = null;
             _isDragging = false;
