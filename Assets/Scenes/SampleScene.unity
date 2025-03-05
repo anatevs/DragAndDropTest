@@ -709,6 +709,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   _floor: {fileID: 1936059416}
+  _enviromentComponent: {fileID: 2106677556}
+  _playerTransform: {fileID: 83953141}
 --- !u!1 &84019868
 GameObject:
   m_ObjectHideFlags: 0
@@ -3925,6 +3927,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 826315119}
+  - component: {fileID: 826315120}
   m_Layer: 0
   m_Name: Gameplay
   m_TagString: Untagged
@@ -3950,6 +3953,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &826315120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826315118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bc6feea316b3ff4bb88401e1c8f9824, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _borderMoveOffset: 0.5
+  _backgoundHalfWidth: 40
+  _moveStep: 9
+  _dragController: {fileID: 83953144}
+  _enviromentComponent: {fileID: 2106677556}
+  _isLeft: 0
+  _isRight: 0
 --- !u!1 &830175287
 GameObject:
   m_ObjectHideFlags: 0
@@ -6897,7 +6919,7 @@ GameObject:
   - component: {fileID: 1385332120}
   - component: {fileID: 1385332119}
   - component: {fileID: 1385332121}
-  - component: {fileID: 1385332122}
+  - component: {fileID: 1385332123}
   m_Layer: 6
   m_Name: Mushroom
   m_TagString: Untagged
@@ -6958,7 +6980,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1385332118}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.79, y: -4.16, z: 0}
+  m_LocalPosition: {x: -0.5, y: -4.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6993,7 +7015,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1385332122
+--- !u!114 &1385332123
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7002,7 +7024,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1385332118}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11ec827477602b14c926f4295800da6f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e56dfd92bf909647b1379e3bb2a60d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _bottomPoint: {fileID: 140018895}
@@ -9615,6 +9637,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2106677555}
+  - component: {fileID: 2106677556}
   m_Layer: 0
   m_Name: Enviroment
   m_TagString: Untagged
@@ -9630,7 +9653,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2106677554}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.14, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9639,6 +9662,20 @@ Transform:
   m_Father: {fileID: 826315119}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2106677556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106677554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a49846dd14c24ab41b8a2b53ad17508d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enviromentTransform: {fileID: 2106677555}
+  _backgoundHalfWidth: 40
 --- !u!1 &2109111308
 GameObject:
   m_ObjectHideFlags: 0

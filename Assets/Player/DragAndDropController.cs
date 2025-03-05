@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Gameplay
+namespace GameCore
 {
     public class DragAndDropController : MonoBehaviour
     {
@@ -15,6 +15,12 @@ namespace Gameplay
 
         [SerializeField]
         private GameObject _floor;
+
+        [SerializeField]
+        private EnviromentComponent _enviromentComponent;
+
+        [SerializeField]
+        private Transform _playerTransform;
 
         private DraggingComponent _currentDragging;
 
@@ -61,6 +67,8 @@ namespace Gameplay
 
                 _currentDragging = collider.gameObject.GetComponent<DraggingComponent>();
                 _currentDragging.MakeFalling(false);
+
+                _currentDragging.transform.SetParent(_playerTransform);
             }
         }
 
@@ -71,6 +79,8 @@ namespace Gameplay
                 _currentDragging.ExploreDown(_standableLayerMask, _rayLength, _floor, out _targetDropPoint);
                 _targetDropPoint = new Vector2(_targetDropPoint.x, _targetDropPoint.y - _fakeHight);
                 _currentDragging.StartFalling(_targetDropPoint);
+
+                _currentDragging.transform.SetParent(_enviromentComponent.EnviromentTransform);
             }
 
             _currentDragging = null;

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Gameplay
+namespace GameCore
 {
     [RequireComponent(typeof(Rigidbody2D))]
     public class DraggingComponent : MonoBehaviour

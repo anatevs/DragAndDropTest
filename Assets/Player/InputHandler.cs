@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Gameplay
+namespace GameCore
 {
     [RequireComponent(typeof(PlayerInput))]
     public class InputHandler : MonoBehaviour

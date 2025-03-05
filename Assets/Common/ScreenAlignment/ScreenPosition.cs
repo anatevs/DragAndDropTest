@@ -1,11 +1,20 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace GameCore
 {
     public class ScreenPosition : MonoBehaviour
     {
-        private List<ILeftScreenAlignment> _leftScreenAlignments;
+        [SerializeField]
+        private float _borderMoveOffset = 0.5f;
+
+        [SerializeField]
+        private float _moveStep = 3f;
+
+        [SerializeField]
+        private DragAndDropController _dragController;
+
+        [SerializeField]
+        private EnviromentComponent _enviromentComponent;
 
         private Camera _camera;
 
@@ -13,49 +22,58 @@ namespace GameCore
 
         private float _rightCameraBorder;
 
-        public void Construct(List<ILeftScreenAlignment> leftScreenAlignments)
-        {
-            _leftScreenAlignments = leftScreenAlignments;
-        }
+
 
         private void Start()
         {
             _camera = Camera.main;
 
             (_leftCameraBorder, _rightCameraBorder) = GetCameraBorders();
+        }
 
-            foreach(var alignment in _leftScreenAlignments)
+
+        [SerializeField]
+        bool _isLeft, _isRight;
+        private void Update()
+        {
+            if (_isLeft)
             {
-                alignment.AlignXToScreen(_leftCameraBorder);
+                MoveLeft();
+                _isLeft = false;
+            }
+            if (_isRight)
+            {
+                MoveRight();
+                _isRight = false;
             }
         }
 
-        public void InitPositions()
+        private void MoveLeft()
         {
-            var leftCameraBorder = GetLeftCameraBorder();
+            var directionX = -_moveStep;
 
-            if (_leftCameraBorder == leftCameraBorder)
-            {
-                foreach (var alignment in _leftScreenAlignments)
-                {
-                    alignment.SetToInitPosX();
-                }
-            }
-            else
-            {
-                _leftCameraBorder = leftCameraBorder;
+            var bordersOffset = _enviromentComponent.GetLeftBorder() - _leftCameraBorder;
 
-                foreach (var alignment in _leftScreenAlignments)
-                {
-                    alignment.AlignXToScreen(leftCameraBorder);
-                }
+            if (bordersOffset >= directionX)
+            {
+                directionX = bordersOffset;
             }
+
+            _enviromentComponent.MoveOpposite(directionX);
         }
 
-        private float GetLeftCameraBorder()
+        private void MoveRight()
         {
-            return _camera.transform.position.x
-                - _camera.aspect * _camera.orthographicSize;
+            var directionX = _moveStep;
+
+            var bordersOffset = _enviromentComponent.GetRightBorder() - _rightCameraBorder;
+
+            if (bordersOffset <= directionX)
+            {
+                directionX = bordersOffset;
+            }
+
+            _enviromentComponent.MoveOpposite(directionX);
         }
 
         private (float left, float right) GetCameraBorders()
