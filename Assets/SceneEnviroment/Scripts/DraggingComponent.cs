@@ -50,19 +50,26 @@ namespace GameCore
                 var pointColliders = Physics2D.OverlapPointAll(collider.point);
 
                 int itselfCount = 1;
+                bool areAllStand = true;
+
                 foreach (var pointCldr in pointColliders)
                 {
+                    if (((1 << pointCldr.gameObject.layer) & standLayer) == 0)
+                    {
+                        areAllStand = false;
+                    }
+
                     if (pointCldr.transform == collider.transform)
                     {
                         itselfCount--;
-                        break;
                     }
                 }
 
                 int pointCollidersLength = pointColliders.Length + itselfCount;
                 if (pointCollidersLength > 1)
                 {
-                    if (collider.point.y != _bottomPoint.position.y)
+                    if (collider.point.y != _bottomPoint.position.y
+                        && !areAllStand)
                     {
                         continue;
                     }
