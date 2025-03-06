@@ -43,31 +43,39 @@ namespace GameCore
         {
             standPoint = _zeroVector;
 
-            var colliders = Physics2D.RaycastAll(_bottomPoint.position, _downDirection, rayLength);
+            var standColliders = Physics2D.RaycastAll(_bottomPoint.position, _downDirection, rayLength, standLayer);
 
-            foreach (var collider in colliders)
+            foreach (var collider in standColliders)
             {
-                if (collider.transform.gameObject != this && ((standLayer & (1 << collider.transform.gameObject.layer)) != 0))
+                var pointColliders = Physics2D.OverlapPointAll(collider.point);
+
+                int itselfCount = 1;
+                foreach (var pointCldr in pointColliders)
                 {
-                    var pointColliders = Physics2D.OverlapPointAll(collider.point);
-
-                    if (pointColliders.Length > 1)
+                    if (pointCldr.transform == collider.transform)
                     {
-                        if (collider.point.y != _bottomPoint.position.y)
-                        {
-                            continue;
-                        }
-                        else if (collider.point.y == _bottomPoint.position.y
-                            && pointColliders.Length != 2
-                            && collider.transform.gameObject == floor)
-                        {
-                            continue;
-                        }
+                        itselfCount--;
+                        break;
                     }
-
-                    standPoint = collider.point;
-                    return true;
                 }
+
+                int pointCollidersLength = pointColliders.Length + itselfCount;
+                if (pointCollidersLength > 1)
+                {
+                    if (collider.point.y != _bottomPoint.position.y)
+                    {
+                        continue;
+                    }
+                    else if (collider.point.y == _bottomPoint.position.y
+                        && pointCollidersLength != 2
+                        && collider.transform.gameObject == floor)
+                    {
+                        continue;
+                    }
+                }
+
+                standPoint = collider.point;
+                return true;
             }
 
             var reverseColliders = Physics2D.RaycastAll(

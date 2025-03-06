@@ -4000,8 +4000,6 @@ MonoBehaviour:
   _moveStep: 9
   _dragController: {fileID: 83953144}
   _enviromentComponent: {fileID: 2106677556}
-  _isLeft: 0
-  _isRight: 0
 --- !u!1 &830175287
 GameObject:
   m_ObjectHideFlags: 0
@@ -7043,7 +7041,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1385332118}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5, y: -4.16, z: 0}
+  m_LocalPosition: {x: -0.5, y: -1.91, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
